@@ -7,6 +7,7 @@ import App from './App';
 
 // Páginas
 import Login from './pages/Login';
+import CriarConta from './pages/CriarConta';
 import Dashboard from './pages/Dashboard';
 import Alunos from './pages/Alunos';
 import Pais from './pages/Pais';
@@ -17,14 +18,19 @@ import Configuracoes from './pages/Configuracoes';
 import './index.css';
 
 const router = createBrowserRouter([
+  // Rotas Públicas (sem menu de navegação)
   {
     path: "/",
+    element: <CriarConta />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  // Rotas Privadas (com o layout do App e menu de navegação)
+  {
     element: <App />,
     children: [
-      {
-        path: "/",
-        element: <Login />,
-      },
       {
         path: "/dashboard",
         element: <Dashboard />,
